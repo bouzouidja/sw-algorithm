@@ -50,14 +50,5 @@ int indexReader(ifstream& indexFile){
 	
 	return 0;
 }
-	
-int main{
-	ifstream IndexF("/home/student/Téléchargements/reader/uniprot_sprot.fasta.pin");
-	indexReader(IndexF);
-	
-
-return 0 ;
-	
-}
 
 
