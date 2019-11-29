@@ -41,12 +41,15 @@ int indexReader(ifstream& indexFile){
 	cout<< "Sequence max"<< lenSMax << endl;
 	
 	int Offheader[nSeq+1];
-	indexFile.read((char*) &Offheader, sizeof(Offheader));
-	BigtoLittleEndian(Offheader);
-	
+	for(int i=0;i< (nSeq+1);i++){
+		indexFile.read((char*)&Offheader[i], sizeof(int));
+		BigtoLittleEndian(Offheader[i]);
+	}	
 	int OffSeq[nSeq+1];
-	indexFile.read((char*)&OffSeq,sizeof(OffSeq));
-	BigtoLittleEndian(OffSeq);
+		for(int i=0;i< (nSeq+1);i++){
+		indexFile.read((char*)&OffSeq[i], sizeof(int));
+		BigtoLittleEndian(OffSeq[i]);
+	}
 	
 	return 0;
 }
