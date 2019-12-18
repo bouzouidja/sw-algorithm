@@ -21,7 +21,7 @@ int indexReader(ifstream& indexFile){
 	BigtoLittleEndian(tlen);
 	
 	
-	char Title[tlen];
+	char Title[len];
 	indexFile.read((char*) &Title, len*sizeof(char));
 	cout<< "Title"<< Title << endl;
 	
