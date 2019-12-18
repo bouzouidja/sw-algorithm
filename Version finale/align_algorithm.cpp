@@ -60,10 +60,6 @@ int alignment_method(string fasta_seq , string  input_seq){
 									//printf("la aleur ajoute est %d and The max is  %d\t" ,scoring_matrix[i][j] , max_value);
 								}
 							
-							if (j+1 == m) 
-								{
-									//printf("\n");
-								}
 						}
 					else 
 
@@ -100,10 +96,6 @@ int alignment_method(string fasta_seq , string  input_seq){
 
 											max_value = max(max_value , scoring_matrix[i][j]) ;//MAJ le maximum
 
-											if (j+1 == m) 
-												{
-													//printf("\n");
-												}
 								}
 									
 						
