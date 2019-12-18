@@ -17,15 +17,12 @@ int indexReader(ifstream& indexFile){
 	cout<< "Type"<< dtype << endl;
 	indexFile.read((char*) &len, sizeof(len));
 	BigtoLittleEndian(len);
-	indexFile.read((char*) &tlen, sizeof(tlen));
-	BigtoLittleEndian(tlen);
-	
 	
 	char Title[len];
 	indexFile.read((char*) &Title, len*sizeof(char));
 	cout<< "Title"<< Title << endl;
 	
-	indexFile.read((char*) &tlen, sizeof(len));
+	indexFile.read((char*) &tlen, sizeof(tlen));
 	BigtoLittleEndian(tlen);
 	
 	char Timestamp[tlen];
