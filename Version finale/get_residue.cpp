@@ -1,4 +1,11 @@
-
+/**
+ * 		INFO-H-304 REMISE FINALE DU PROJET
+ * 
+ * 	  @authors   Ismail Dabach, Sid Ahmed Bouzouidja, Sacha Meurice
+ * 	  @date      18-12-2019
+ * 
+ * 
+ **/
 
 // Implémentation du tableau pour le fichier .psq
 // Convertit les valeurs encodées (byte) en acide aminé (char)

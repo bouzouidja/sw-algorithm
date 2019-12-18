@@ -1,16 +1,19 @@
 /**
- *    Version 1.0
+ * 		INFO-H-304 REMISE FINALE DU PROJET
+ * 
+ * 	  @authors   Ismail Dabach, Sid Ahmed Bouzouidja, Sacha Meurice
+ * 	  @date      18-12-2019
+ * 
  * 
  **/
+
 
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
-#include <algorithm>    // std::max
-
-#include "align_algorithm.cpp"
-#include "get_residue.cpp"
+#include <algorithm>
+#include <cstring>
 
 using std::cout;
 using std::endl;
@@ -19,6 +22,10 @@ using std::ifstream;
 using std::ios;
 using std::vector;
 
+
+
+int alignment_method(string fasta_seq , string  input_seq);
+char get_residue(char byte);
 
 
 typedef struct Score
@@ -89,11 +96,14 @@ int main(int argc, char* argv[])
 	
 	// On parcourt toutes les séquences du fichier f_psq
 	// Pour chaque séquence, on associe un score de Smith
-	char cara = 'a';
-	string cmp_seq = "hello";
+	char cara;
+	string cmp_seq = "";
 	
 	// On retient le tout dans un tableau de structures
 	vector<Score> tab_scores;
+	
+	// Le premier caractère étant NULL, on le passe
+	f_psq.read((char*) &cara, sizeof(char));
 	
 	for (int i = 0; i < length_psq; ++i)
 	{
@@ -102,13 +112,14 @@ int main(int argc, char* argv[])
 		if (cara == 0) // Les séquences sont séparées par le caractère '\0'
 		{
 			// Quelle séquence est traitée :
-			cout << "Séquence courante : " << cmp_seq << endl;
+			// cout << "Séquence courante : " << cmp_seq << endl;
 			
 			int score_smith = alignment_method(cmp_seq, sequence);
 			
 			score s;
 			s.offset = i+1;
 			s._score = score_smith;
+			s._sequence = cmp_seq;
 			
 			tab_scores.push_back(s);
 			cmp_seq = "";
@@ -124,7 +135,11 @@ int main(int argc, char* argv[])
 	
 	for (unsigned int i = 0; i < tab_scores.size(); ++i)
 	{
-		printf("Séquence analysée : %s\n", tab_scores[i]._sequence);
+		// Convertit un string en char[]
+		char cstr[tab_scores[i]._sequence.size() + 1];
+		strcpy(cstr, tab_scores[i]._sequence.c_str());
+
+		printf("Séquence analysée : %s\n", cstr);
 		printf("offset : %d, score : %d\n", tab_scores[i].offset, tab_scores[i]._score);
 		printf("\n\n\n");
 	}
