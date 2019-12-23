@@ -28,7 +28,7 @@ int gap = -2 ,  match = 1 ,  mismatch = -1;
 int alignment_method(string fasta_seq , string  input_seq){
 	// 1- the first step is building a scoring matrix 
 	// 2 - second you should find the most suitable value (MAX in the matrix)
-	// 3- 
+	
 	int n = fasta_seq.length()+1;
 	int m = input_seq.length() +1;
 	
