@@ -32,7 +32,10 @@ int alignment_method(string fasta_seq , string  input_seq){
 	int n = fasta_seq.length()+1;
 	int m = input_seq.length() +1;
 	
-	int scoring_matrix[n][m];
+	std::vector< std::vector<int> > scoring_matrix;
+	scoring_matrix.resize(n) ;
+	for (int index =0 ; index< n ;++index )
+		scoring_matrix[index].resize(m);
 	//printf("taille des seqs N %d et M %d \n",n ,m );
 	scoring_matrix[0][0] = 0 ; //initialize the first element of the matrix to 0
 	int max_value = scoring_matrix[0][0] ;// the most suitable value for the trace back
