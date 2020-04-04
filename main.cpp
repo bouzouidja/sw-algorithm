@@ -51,9 +51,12 @@ int main(int argc, char* argv[])
 	// Le fichier de la base de donnée doit exister au format BLAST
 	// On vérifie que les fichiers .phr .pin et .psq existent
 
-	ifstream f_phr(argv[1] + (string)".phr", ios::in | ios::binary);
-	ifstream f_pin(argv[1] + (string)".pin", ios::in | ios::binary);
-	ifstream f_psq(argv[1] + (string)".psq", ios::in | ios::binary);
+	string phr = arg[1] + ".phr";
+	string pin = arg[1] + ".phr";
+	string psq = arg[1] + ".psq";
+	ifstream f_phr(phr, ios::in | ios::binary);
+	ifstream f_pin(pin, ios::in | ios::binary);
+	ifstream f_psq(psq, ios::in | ios::binary);
 	
 	ifstream f_pro(argv[2]);
 	

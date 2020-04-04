@@ -50,10 +50,11 @@ int main(int argc, char* argv[])
 	
 	// Le fichier de la base de donnée doit exister au format BLAST
 	// On vérifie que les fichiers .phr .pin et .psq existent
-
-	ifstream f_phr(argv[1] + (string)".phr", ios::in | ios::binary);
-	ifstream f_pin(argv[1] + (string)".pin", ios::in | ios::binary);
-	ifstream f_psq(argv[1] + (string)".psq", ios::in | ios::binary);
+	
+	printf("this is the file name :%s\n", argv[1] );
+	ifstream f_phr("uniprot_test.fasta.phr", std::ifstream::in);
+	ifstream f_pin("uniprot_test.fasta.pin", std::ifstream::in);
+	ifstream f_psq("uniprot_test.fasta.psq", std::ifstream::in);
 	
 	ifstream f_pro(argv[2]);
 	
@@ -143,7 +144,6 @@ int main(int argc, char* argv[])
 		printf("offset : %d, score : %d\n", tab_scores[i].offset, tab_scores[i]._score);
 		printf("\n\n\n");
 	}
-	
 	
 	f_phr.close();
 	f_pin.close();
