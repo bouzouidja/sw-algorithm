@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	// Le fichier de la base de donnée doit exister au format BLAST
 	// On vérifie que les fichiers .phr .pin et .psq existent
 	
-	printf("this is the file name :%s\n", argv[1] );
+	
 	ifstream f_phr("uniprot_test.fasta.phr", std::ifstream::in);
 	ifstream f_pin("uniprot_test.fasta.pin", std::ifstream::in);
 	ifstream f_psq("uniprot_test.fasta.psq", std::ifstream::in);
