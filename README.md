@@ -3,10 +3,10 @@
 ## Version 1.0
 
 La version 1.0 du projet sw-algorithm est en ligne !  
-Pour compiler cette version, utilisez la commande ||make||.
+Pour compiler cette version, utilisez la commande **make**.
 
 Pour exécuter cette version, utilisez le format suivant :  
-||./main proteine.fasta base_de_donnee.fasta > result.txt||
+**./main proteine.fasta base_de_donnee.fasta > result.txt**
 
 En comparant sur une base de donnée de 400ko, swipe mets 1 seconde à s'exécuter et cette version met 20 secondes, ce qui est un bon score !
 
