@@ -10,7 +10,6 @@
 #define IO_MODULE_H
 
 #include <string>
-#include <cstring>
 #include <iostream>
 #include <fstream>
 #include "Fpin.h"

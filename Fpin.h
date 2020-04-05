@@ -1,3 +1,9 @@
+/**
+ * 
+ * 		Cette classe représente un fichier binaire .pin
+ */
+
+
 #ifndef FPIN_H
 #define FPIN_H
 
@@ -6,10 +12,7 @@
 using std::ifstream;
 using std::string;
 
-/**
- * 
- * 		Cette classe représente un fichier binaire .pin
- */
+
 
 class Fpin
 {
@@ -19,17 +22,20 @@ class Fpin
 	Fpin(string filename);
 	void close();
 	
-	
 	char* getTitle();
 	char* getTimestamp();
+	string getDbType();
+	
 	int getOffsetHdr();
 	int getOffsetSeq();
-	string getDbType();
 	int32_t getVersion();
+	int32_t getNSeq();
+	
+	
 	void seekg(int offset);
 	void read(char* buffer, int n);
 	int tellg();
-	int32_t getNSeq();
+	
 	
 	private:
 

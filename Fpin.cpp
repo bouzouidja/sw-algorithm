@@ -1,6 +1,5 @@
 #include "Fpin.h"
 #include "conversions.h"
-#define BUFFER_SIZE 4
 
 #include <iostream>
 using std::cout;
@@ -11,7 +10,7 @@ Fpin::Fpin(string filename)
 	file = new ifstream(filename);
 	
 	if (!file->is_open()) {
-		cout << "Merci de spécifier un nom de fichier valide." << endl;
+		cout << "Merci de spécifier un nom de fichier valide pour le fichier .pin" << endl;
 		exit(1);
 	}
 	
@@ -20,36 +19,36 @@ Fpin::Fpin(string filename)
 
 void Fpin::extract_pin()
 {
-	char buffer[BUFFER_SIZE];
+	char buffer[4];
 	
-	file->read(buffer, BUFFER_SIZE);
+	file->read(buffer, 4 * sizeof(char));
 	version = byte2int(buffer);
 	
-	file->read(buffer, BUFFER_SIZE);
+	file->read(buffer, 4 * sizeof(char));
 	db_type = byte2int(buffer);
 	
-	file->read(buffer, BUFFER_SIZE);
+	file->read(buffer, 4 * sizeof(char));
 	title_length = byte2int(buffer);
 	
 	title = new char[title_length + 1]; // +1 pour le caractère de fin de chaîne
 	file->read(title, title_length);
 	title[title_length] = '\0';
 	
-	file->read(buffer, BUFFER_SIZE);
+	file->read(buffer, 4 * sizeof(char));
 	timestamp_length = byte2int(buffer);
 	
 	timestamp = new char[timestamp_length + 1]; // +1 pour le caractère de fin de chaîne
 	file->read(timestamp, timestamp_length);
 	timestamp[timestamp_length] = '\0';
 	
-	file->read(buffer, BUFFER_SIZE);
+	file->read(buffer, 4 * sizeof(char));
 	n_seq = byte2int(buffer);
 	
 	// Le nb de residues est codé sur un Int64
 	// Passons cette information pour le moment
-	file->read(buffer, 2*BUFFER_SIZE);
+	file->read(buffer, 2*4 * sizeof(char));
 	
-	file->read(buffer, BUFFER_SIZE);
+	file->read(buffer, 4 * sizeof(char));
 	max_seq = byte2int(buffer);
 	
 	pos_offset_hdr = file->tellg();
